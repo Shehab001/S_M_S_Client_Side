@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBk-nsxSQWc7GoER2VoPXuyb1FWBQKoK1w",
-  authDomain: "jobportal-9ffec.firebaseapp.com",
-  projectId: "jobportal-9ffec",
-  storageBucket: "jobportal-9ffec.appspot.com",
-  messagingSenderId: "864931090711",
-  appId: "1:864931090711:web:43828fe4121c4662222752",
+  apiKey: "AIzaSyAnMPQkTnfpArlqTASLwFzeNsiD_--1jUA",
+  authDomain: "school-f024f.firebaseapp.com",
+  projectId: "school-f024f",
+  storageBucket: "school-f024f.appspot.com",
+  messagingSenderId: "919583523237",
+  appId: "1:919583523237:web:77a510b7afa8bff423284c",
 };
 
 // Initialize Firebase
