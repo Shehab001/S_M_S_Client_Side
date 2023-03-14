@@ -1,7 +1,7 @@
 import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Marquee, { Motion, randomIntFromInterval } from "react-marquee-slider";
+import Marquee from "react-marquee-slider";
 
 const theme = createTheme({
   typography: {
@@ -12,14 +12,15 @@ const theme = createTheme({
 const Nav1 = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box py={2} px={10}>
+      <Box py={2} px={{ sm: 10, xs: 2 }}>
         <Grid container spacing={2} alignItems={"Center"}>
-          <Grid item xs={6} md={4}>
+          <Grid item xs={6} sm={4}>
             <Button
               variant="contained"
               size="small"
               sx={{
                 backgroundColor: "#00BBB4",
+
                 "&:hover": {
                   backgroundColor: "#001B1A",
                   transform: "scale(1.1)",
@@ -30,7 +31,7 @@ const Nav1 = () => {
               Click here for admission-2023
             </Button>
           </Grid>
-          <Grid item xs={6} md={4}>
+          <Grid item xs={4} sm={4} display={{ xs: "none", sm: "block" }}>
             <Marquee>
               {" "}
               <Typography
@@ -49,7 +50,7 @@ const Nav1 = () => {
               </Typography>
             </Marquee>
           </Grid>
-          <Grid item xs={6} md={4} textAlign={"end"}>
+          <Grid item xs={6} sm={4} textAlign={"end"}>
             <Typography
               sx={{
                 fontWeight: "bold",
