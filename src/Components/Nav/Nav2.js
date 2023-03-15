@@ -52,6 +52,7 @@ function Nav2() {
         py={2}
         sx={{
           position: "absolute",
+          zIndex: 1500,
           top: { xs: 55, sm: 50 },
           left: { xs: "30%", sm: "40%", md: 50 },
           transform: { xs: "translate(50,-40%)", md: "none" },
