@@ -1,9 +1,11 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router";
+import Fifth from "../Components/Fifth/Fifth";
 import Fourth from "../Components/Fourth/Fourth";
 import Header from "../Components/Header/Header";
 import Second from "../Components/Second/Second";
+import Sixth from "../Components/Sixth/Sixth";
 import Third from "../Components/Third/Third";
 
 const Main = () => {
@@ -13,6 +15,8 @@ const Main = () => {
       <Second></Second>
       <Third></Third>
       <Fourth></Fourth>
+      <Fifth></Fifth>
+      <Sixth></Sixth>
       <Outlet></Outlet>
     </Box>
   );
