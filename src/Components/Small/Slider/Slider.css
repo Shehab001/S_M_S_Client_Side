@@ -1,0 +1,130 @@
+#main-slider-container {
+  width: 100%;
+  height: 405px;
+  border: none;
+}
+
+#slider {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+#slider::-webkit-scrollbar {
+  display: none;
+}
+
+#main-slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slider-card-title,
+.slider-card-description {
+  margin: 5px 0px 5px 10px;
+}
+
+.slider-card-title {
+  font-weight: 900;
+  margin-top: 10px;
+  text-align: start;
+  font-family: "overpass,serif pro";
+  font-size: 20px;
+  color: black;
+}
+
+.slider-card-description {
+  opacity: 0.5;
+  font-size: 13px;
+  text-align: start;
+}
+
+.slider-card-image {
+  width: 100%;
+  height: 220px;
+  background-color: rgb(240 240 240 / 80%);
+}
+
+.slider-icon.left,
+.slider-icon.right {
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0.5;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+  cursor: pointer;
+}
+
+.description-controller {
+  padding-left: 5px;
+}
+
+.slider-icon.left {
+  left: 18px;
+}
+
+.slider-icon.right {
+  right: 8px;
+}
+
+.slider-icon.left:hover,
+.slider-icon.right:hover {
+  opacity: 1;
+}
+
+.slider-card {
+  width: 320px;
+  /* height: 300px; */
+  background: white;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.slider-card-description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+}
+/* .description-controller {
+  overflow: hidden;
+  white-space: wrap;
+} */
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-top: 5px;
+}
+
+.slider-card-money {
+  font-weight: 700;
+  font-size: 18px;
+  color: black;
+}
+.slider-card-money span {
+  font-size: 18px;
+  font-weight: 900;
+}
+.slider-card-money:hover {
+  transform: scale(1.1);
+}
+.slider-card-info:hover {
+  transform: scale(1.1);
+}
+
+.slider-card:hover {
+  transform: scale(1.05);
+  box-shadow: 5;
+  transition: linear 0.3s;
+}

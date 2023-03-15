@@ -53,7 +53,13 @@ const Fourth = () => {
             >
               Empower
             </Typography>
-            <Typography sx={{ fontSize: "14px", opacity: 0.5, width: "90%" }}>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                opacity: 0.5,
+                width: { xs: "100%", md: "90%" },
+              }}
+            >
               Duis autem vel eum iriure dolor in hendrerit in vulputate velit
               esse molestie consequat
             </Typography>
@@ -74,7 +80,13 @@ const Fourth = () => {
             >
               Engage
             </Typography>
-            <Typography sx={{ fontSize: "14px", opacity: 0.5, width: "90%" }}>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                opacity: 0.5,
+                width: { xs: "100%", md: "90%" },
+              }}
+            >
               Duis autem vel eum iriure dolor in hendrerit in vulputate velit
               esse molestie consequat
             </Typography>
@@ -95,7 +107,13 @@ const Fourth = () => {
             >
               Graduation
             </Typography>
-            <Typography sx={{ fontSize: "14px", opacity: 0.5, width: "90%" }}>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                opacity: 0.5,
+                width: { xs: "100%", md: "90%" },
+              }}
+            >
               Duis autem vel eum iriure dolor in hendrerit in vulputate velit
               esse molestie consequat
             </Typography>
@@ -116,7 +134,13 @@ const Fourth = () => {
             >
               Awarding
             </Typography>
-            <Typography sx={{ fontSize: "14px", opacity: 0.5, width: "90%" }}>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                opacity: 0.5,
+                width: { xs: "100%", md: "90%" },
+              }}
+            >
               Duis autem vel eum iriure dolor in hendrerit in vulputate velit
               esse molestie consequat
             </Typography>

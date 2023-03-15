@@ -25,7 +25,7 @@ const Fifth = () => {
             <Grid item xs={6} textAlign={"start"} color={"white"}>
               <Typography
                 sx={{
-                  fontSize: "25px",
+                  fontSize: { xs: "16px", md: "25px" },
                   fontWeight: "bold",
                   fontFamily: "jest",
                   letterSpacing: "1px",
@@ -35,7 +35,7 @@ const Fifth = () => {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "25px",
+                  fontSize: { xs: "16px", md: "25px" },
                   fontWeight: "semi-bold",
                   fontFamily: "jest",
                   letterSpacing: "1px",

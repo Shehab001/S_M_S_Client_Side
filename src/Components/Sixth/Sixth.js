@@ -8,7 +8,7 @@ const Sixth = () => {
   return (
     <Box
       px={{ sm: 3, md: 10 }}
-      my={10}
+      mt={10}
       py={10}
       sx={{
         backgroundImage: `url(${img})`,
@@ -50,7 +50,7 @@ const Sixth = () => {
           <Grid item xs={12} md={6}>
             <img src={img1} style={{ width: "100%" }} alt="Group"></img>
           </Grid>
-          <Grid item xs={12} md={6} px={10}>
+          <Grid item xs={12} md={6} px={10} mt={{ md: 0, xs: 10 }}>
             <Grid container spacing={2} ml={5} textAlign={"center"}>
               <Grid
                 item
