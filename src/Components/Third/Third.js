@@ -5,7 +5,11 @@ import img1 from "../../Assets/welcome-img-1.jpg";
 
 const Third = () => {
   return (
-    <Box mx={{ xs: 5, md: 10 }} my={{ xs: 10, md: 20 }}>
+    <Box
+      px={{ xs: 5, md: 10 }}
+      py={{ xs: 10, md: 10 }}
+      backgroundColor={"#fafafa"}
+    >
       <Grid container spacing={2} sx={{ alignItems: "center" }}>
         <Grid item xs={12} md={6} sx={{ textAlign: "start", pt: 5 }}>
           <Typography

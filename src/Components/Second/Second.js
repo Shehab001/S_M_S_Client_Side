@@ -8,7 +8,7 @@ import img2 from "../../Assets/foto-sushi-6anudmpILw4-unsplash.jpg";
 
 const Second = () => {
   return (
-    <Box mx={{ md: 10, xs: 5 }} mt={5}>
+    <Box mx={{ md: 10, xs: 5 }} my={10}>
       <Grid container>
         <Grid
           item
