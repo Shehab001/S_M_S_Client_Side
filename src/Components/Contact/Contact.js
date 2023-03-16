@@ -5,7 +5,7 @@ import Mapp from "./Mapp";
 
 const Contact = () => {
   return (
-    <Box mb={10} mx={10}>
+    <Box id="contact" mb={10} mx={10}>
       <Typography
         sx={{
           color: "black",

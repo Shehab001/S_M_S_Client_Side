@@ -225,7 +225,7 @@ function Nav2() {
                         }
                   }
                 >
-                  About College
+                  About
                 </Button>
                 <Menu
                   sx={{ mt: 2 }}
@@ -532,35 +532,38 @@ function Nav2() {
                 >
                   Gallery
                 </Button>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={() => {
-                    setActive(7);
-                  }}
-                  sx={
-                    active === 7
-                      ? {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 1,
-                          borderBottomColor: "red",
-                          transition: "1s",
-                          mx: 1,
-                        }
-                      : {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 0,
-                          mx: 1,
-                        }
-                  }
-                >
-                  Contact
-                </Button>
+                <a href="#contact">
+                  {" "}
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    onMouseOver={() => {
+                      setActive(7);
+                    }}
+                    sx={
+                      active === 7
+                        ? {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 1,
+                            borderBottomColor: "red",
+                            transition: "1s",
+                            mx: 1,
+                          }
+                        : {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 0,
+                            mx: 1,
+                          }
+                    }
+                  >
+                    Contact
+                  </Button>
+                </a>
               </Box>
 
               <Box sx={{ flexGrow: 0, mx: 1 }}>

@@ -17,7 +17,7 @@ const History = () => {
     slidesToScroll: 1,
   };
   return (
-    <Box sx={{ backgroundColor: "#e5e5e5", p: 10 }}>
+    <Box sx={{ backgroundColor: "#e5e5e5", pt: 10, px: { xs: 2, md: 10 } }}>
       <Typography
         sx={{
           fontFamily: "jest",
@@ -33,7 +33,13 @@ const History = () => {
       </Typography>
       <Box sx={{ mt: 5 }}>
         <Grid container spacing={2} overflow="">
-          <Grid item xs={12} md={6} textAlign={"start"} px={10}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            textAlign={{ xs: "center", md: "start" }}
+            px={{ md: 10, xs: 3 }}
+          >
             <Typography sx={{ letterSpacing: "1px", lineHeight: "30px" }}>
               এ. কে. উচ্চ বিদ্যালয় ও কলেজ (আসকর আলী-কোব্বাত মিঞা উচ্চ বিদ্যালয়
               ও কলেজ) ঢাকার কদমতলীর থানার দনিয়া এলাকায় অবস্থিত একটি উচ্চ
@@ -109,13 +115,13 @@ const History = () => {
             >
               স্কুলের বৈশিষ্ট্য ও সুবিধাসমূহ
             </Typography>
-            <Divider sx={{ width: "55%" }}></Divider>
+            <Divider sx={{ width: { md: "55%", xs: "85%" } }}></Divider>
             <Typography
               sx={{
                 mt: 5,
                 letterSpacing: "1px",
                 lineHeight: "40px",
-                textAlign: { md: "start", xs: "center" },
+                textAlign: { xs: "start" },
               }}
             >
               •দক্ষ, অভিজ্ঞ ও সৃজনশীল পদ্ধতিতে প্রশিক্ষণপ্রাপ্ত অধ্যাপকমণ্ডলী
