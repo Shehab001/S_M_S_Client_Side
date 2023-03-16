@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router";
+import Contact from "../Components/Contact/Contact";
 import Fifth from "../Components/Fifth/Fifth";
 import Footer from "../Components/Footer/Footer";
 import Fourth from "../Components/Fourth/Fourth";
@@ -23,6 +24,7 @@ const Main = () => {
       <Sixth></Sixth>
       <Seventh></Seventh>
       <Outlet></Outlet>
+      <Contact></Contact>
       <Footer></Footer>
     </Box>
   );
