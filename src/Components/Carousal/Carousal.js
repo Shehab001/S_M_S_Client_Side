@@ -1,16 +1,31 @@
 import React from "react";
-import img1 from "../../Assets/img2.jpg";
+import img1 from "../../Assets/scll.png";
 import img2 from "../../Assets/aa.jpg";
 import "./Carousal.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
-import { letterSpacing } from "@mui/system";
+import { fontFamily, letterSpacing } from "@mui/system";
 
 const Carousal = () => {
   var items = [
-    { img: img1, text: "Welcome To A.K High School & College", text1: "" },
-    { img: img1, text: "Welcome To A.K High School & College", text1: "" },
-    { img: img1, text: "Welcome To A.K High School & College", text1: "" },
+    {
+      img: img1,
+      text: "Welcome To A.K. High School & College",
+      text1: "",
+      text2: "",
+    },
+    {
+      img: img1,
+      text: "Welcome To A.K. High School & College",
+      text1: "Eastablish In 1971",
+      text2: "",
+    },
+    {
+      img: img1,
+      text: "Welcome To A.K. High School & College",
+      text1: "Eastablish In 1971",
+      text2: "Dania,Kadamtoly,Dhaka",
+    },
   ];
   return (
     <div>
@@ -32,25 +47,64 @@ function Item(props) {
         style={{
           objectFit: "cover",
           width: "100%",
-          height: "auto",
+          height: "70vh",
           opacity: 0.8,
         }}
       ></img>
       <Typography
         sx={{
           position: "absolute",
-          top: "50%",
+          top: "40%",
           left: "50%",
-          transform: "translate(-50%,-50%)",
+          transform: "translate(-50%,-40%)",
           fontFamily: "jest",
           fontWeight: "bold",
-          fontSize: { xs: "20px", sm: "30px", md: 50 },
-          letterSpacing: "2px",
+          fontSize: { xs: "30px", sm: "40px", md: 50 },
+          letterSpacing: "3px",
           color: "white",
         }}
       >
         {props.item.text}
+        <Typography
+          sx={{
+            fontFamily: "jest",
+            fontWeight: "semi-bold",
+            letterSpacing: "3px",
+            fontSize: "20px",
+          }}
+        >
+          {props.item.text1}
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: "jest",
+            fontWeight: "semi-bold",
+            letterSpacing: "3px",
+            fontSize: "20px",
+          }}
+        >
+          {props.item.text2}
+        </Typography>
       </Typography>
+      <a href="#aboutus">
+        <Button
+          sx={{
+            backgroundImage:
+              "linear-gradient(to right top, #6b7ad1, #5a67c1, #4a54b2, #3941a2, #282f92, #1f278b, #151e85, #08157e, #06157e, #04147f, #02147f, #00137f)",
+            position: "absolute",
+            bottom: "10%",
+            left: "50%",
+            transform: "translate(-50%,-10%)",
+            color: "white",
+            fontFamily: "jest",
+            letterSpacing: "3px",
+            py: 1,
+            px: 3,
+          }}
+        >
+          Know Us
+        </Button>
+      </a>
     </Paper>
   );
 }

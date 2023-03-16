@@ -86,7 +86,11 @@ const Third = () => {
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
-          <img src={img1} alt="collage" style={{ width: "100%" }}></img>
+          <img
+            src={img1}
+            alt="collage"
+            style={{ width: "100%", border: "3px solid #e5e5e5" }}
+          ></img>
         </Grid>
       </Grid>
     </Box>

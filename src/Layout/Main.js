@@ -5,6 +5,7 @@ import Fifth from "../Components/Fifth/Fifth";
 import Footer from "../Components/Footer/Footer";
 import Fourth from "../Components/Fourth/Fourth";
 import Header from "../Components/Header/Header";
+import History from "../Components/History/History";
 import Second from "../Components/Second/Second";
 import Seventh from "../Components/Seventh/Seventh";
 import Sixth from "../Components/Sixth/Sixth";
@@ -15,6 +16,7 @@ const Main = () => {
     <Box maxWidth={"1440px"}>
       <Header></Header>
       <Second></Second>
+      <History></History>
       <Third></Third>
       <Fourth></Fourth>
       <Fifth></Fifth>
