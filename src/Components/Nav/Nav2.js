@@ -12,9 +12,12 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Divider } from "@mui/material";
+import { AuthContext } from "../../Context/Context";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme({
   typography: {
@@ -26,8 +29,22 @@ function Nav2() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { user, logOut } = React.useContext(AuthContext);
 
   const open = Boolean(anchorEl);
+
+  const location = useLocation();
+  let navigate = useNavigate();
+  //console.log(location.pathname);
+
+  const handleBtn = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+        toast.success("Logged Out");
+      })
+      .catch((error) => console.error(error));
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -47,7 +64,7 @@ function Nav2() {
   const [active, setActive] = React.useState(0);
   return (
     <>
-      {" "}
+      <ToastContainer position="top-center" autoClose={500} />
       <Box
         py={2}
         sx={{
@@ -569,11 +586,19 @@ function Nav2() {
 
               <Box sx={{ flexGrow: 0, mx: 1 }}>
                 <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
+                  <IconButton
+                    onClick={handleOpenUserMenu}
+                    sx={{ pt: 0, "&:hover": { transform: "scale(1.1)" } }}
+                  >
+                    {user?.uid ? (
+                      <Avatar
+                        sx={{ width: 56, height: 56 }}
+                        alt="User Image"
+                        src={user.photoURL}
+                      />
+                    ) : (
+                      <Avatar src="/broken-image.jpg" />
+                    )}
                   </IconButton>
                 </Tooltip>
                 <Menu
@@ -592,9 +617,31 @@ function Nav2() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">34</Typography>
-                  </MenuItem>
+                  {user?.uid ? (
+                    <Typography textAlign="center">
+                      <Button sx={{ px: 5 }} onClick={handleBtn}>
+                        Log Out
+                      </Button>
+                    </Typography>
+                  ) : (
+                    <Box>
+                      <MenuItem>
+                        <Button sx={{ px: 5 }} size="small">
+                          <Link style={{ textDecoration: "none" }} to="/signup">
+                            Sign Up
+                          </Link>
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem>
+                        <Button sx={{ px: 5 }} size="small">
+                          <Link style={{ textDecoration: "none" }} to="/signin">
+                            Sign In
+                          </Link>
+                        </Button>
+                      </MenuItem>
+                    </Box>
+                  )}
                 </Menu>
               </Box>
             </Toolbar>

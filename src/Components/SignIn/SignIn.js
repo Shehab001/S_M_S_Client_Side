@@ -88,18 +88,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <ToastContainer position="top-center" autoClose={500} />
       <Grid container component="main" alignItems={"center"}>
         <CssBaseline />
         <Grid item xs={false} sm={6} md={6} sx={{ mt: { xs: 10, sm: 0 } }}>
@@ -116,7 +105,7 @@ export default function SignIn() {
           square
         >
           {spin === true ? (
-            <Box sx={{ mt: { xs: 0, md: 30 } }}>
+            <Box sx={{ mt: { xs: 0, md: 0 } }}>
               <Loader></Loader>
             </Box>
           ) : (
@@ -166,6 +155,7 @@ export default function SignIn() {
                   <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
                     label="Remember me"
+                    required
                   />
                   <Button
                     type="submit"

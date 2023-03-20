@@ -102,7 +102,7 @@ export default function SignUp() {
         </Grid>
         <Grid item xs={12} md={6} sx={{}} elevation={6} component={Paper}>
           {spin === true ? (
-            <Box sx={{ mt: { xs: 0, md: 30 } }}>
+            <Box sx={{ mt: { xs: 0, md: 0 } }}>
               <Loader></Loader>
             </Box>
           ) : (
