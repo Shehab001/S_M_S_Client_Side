@@ -181,7 +181,7 @@ export default function SignUp() {
                         <Grid item xs={12}>
                           <TextField
                             sx={{
-                              bgcolor: "white",
+                              bgcolor: "white ",
                             }}
                             required
                             fullWidth
