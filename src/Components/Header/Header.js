@@ -1,15 +1,28 @@
 import { Box } from "@mui/material";
 import React from "react";
+import AdmissionDetails from "../AdmissionDetails/AdmissionDetails";
 import Carousal from "../Carousal/Carousal";
-import Nav1 from "../Nav/Nav1";
-import Nav2 from "../Nav/Nav2";
+import Contact from "../Contact/Contact";
+import Fifth from "../Fifth/Fifth";
+import Fourth from "../Fourth/Fourth";
+import History from "../History/History";
+import Second from "../Second/Second";
+import Seventh from "../Seventh/Seventh";
+import Sixth from "../Sixth/Sixth";
+import Third from "../Third/Third";
 
 const Header = () => {
   return (
     <div>
-      <Nav1></Nav1>
-      <Nav2></Nav2>
       <Carousal></Carousal>
+      <Second></Second>
+      <History></History>
+      <Third></Third>
+      <Fourth></Fourth>
+      <Fifth></Fifth>
+      <Sixth></Sixth>
+      <Seventh></Seventh>
+      <Contact></Contact>
     </div>
   );
 };

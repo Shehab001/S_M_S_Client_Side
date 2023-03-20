@@ -2,6 +2,7 @@ import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Marquee from "react-marquee-slider";
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
   typography: {
@@ -15,21 +16,23 @@ const Nav1 = () => {
       <Box py={2} px={{ sm: 10, xs: 2 }}>
         <Grid container spacing={2} alignItems={"Center"}>
           <Grid item xs={6} sm={4}>
-            <Button
-              variant="contained"
-              size="small"
-              sx={{
-                backgroundColor: "#00BBB4",
+            <Link to="/admissiondetails" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{
+                  backgroundColor: "#00BBB4",
 
-                "&:hover": {
-                  backgroundColor: "#001B1A",
-                  transform: "scale(1.1)",
-                  transition: ".5s",
-                },
-              }}
-            >
-              Click here for admission-2023
-            </Button>
+                  "&:hover": {
+                    backgroundColor: "#001B1A",
+                    transform: "scale(1.1)",
+                    transition: ".5s",
+                  },
+                }}
+              >
+                Click here for admission-2023
+              </Button>
+            </Link>
           </Grid>
           <Grid item xs={4} sm={4} display={{ xs: "none", sm: "block" }}>
             <Marquee>

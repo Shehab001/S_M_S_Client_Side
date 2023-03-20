@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router";
+import AdmissionDetails from "../Components/AdmissionDetails/AdmissionDetails";
 import Contact from "../Components/Contact/Contact";
 import Fifth from "../Components/Fifth/Fifth";
 import Footer from "../Components/Footer/Footer";
@@ -11,20 +12,17 @@ import Second from "../Components/Second/Second";
 import Seventh from "../Components/Seventh/Seventh";
 import Sixth from "../Components/Sixth/Sixth";
 import Third from "../Components/Third/Third";
+import Nav1 from "../Components/Nav/Nav1";
+import Nav2 from "../Components/Nav/Nav2";
 
 const Main = () => {
   return (
     <Box maxWidth={"1440px"}>
-      <Header></Header>
-      <Second></Second>
-      <History></History>
-      <Third></Third>
-      <Fourth></Fourth>
-      <Fifth></Fifth>
-      <Sixth></Sixth>
-      <Seventh></Seventh>
+      <Nav1></Nav1>
+      <Nav2></Nav2>
+
       <Outlet></Outlet>
-      <Contact></Contact>
+
       <Footer></Footer>
     </Box>
   );

@@ -67,7 +67,7 @@ const Sixth = () => {
                 <Typography sx={{ fontSize: "60px" }}>
                   <CountUp
                     start={0}
-                    end={91}
+                    end={175}
                     duration={2.75}
                     enableScrollSpy={true}
                   ></CountUp>
@@ -91,7 +91,7 @@ const Sixth = () => {
                 <Typography sx={{ fontSize: "60px" }}>
                   <CountUp
                     start={0}
-                    end={73}
+                    end={52}
                     duration={2.75}
                     enableScrollSpy={true}
                   ></CountUp>
@@ -113,7 +113,7 @@ const Sixth = () => {
                 <Typography sx={{ fontSize: "60px" }}>
                   <CountUp
                     start={0}
-                    end={6536}
+                    end={9176}
                     duration={4.75}
                     enableScrollSpy={true}
                   ></CountUp>
@@ -137,7 +137,7 @@ const Sixth = () => {
                 <Typography sx={{ fontSize: "60px" }}>
                   <CountUp
                     start={0}
-                    end={6}
+                    end={4}
                     duration={2.75}
                     enableScrollSpy={true}
                   ></CountUp>

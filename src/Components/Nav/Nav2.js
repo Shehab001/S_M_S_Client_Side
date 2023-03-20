@@ -84,6 +84,7 @@ function Nav2() {
         >
           <Container maxWidth="xl">
             <Toolbar disableGutters>
+              {/* responsive */}
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
@@ -298,7 +299,7 @@ function Nav2() {
                 >
                   Administration
                 </Button>
-                <Menu
+                {/* <Menu
                   sx={{ mt: 2 }}
                   id="basic-menu2"
                   anchorEl={anchorEl}
@@ -310,7 +311,7 @@ function Nav2() {
                     "aria-labelledby": "basic-button",
                   }}
                 >
-                  <Box
+                  {/* <Box
                     sx={{ width: 300 }}
                     onMouseLeave={() => {
                       setAnchorEl(null);
@@ -330,8 +331,8 @@ function Nav2() {
                     <Divider></Divider>
                     <MenuItem>Faculty & Stuff Information</MenuItem>
                     <Divider></Divider>
-                  </Box>
-                </Menu>
+                  </Box> }
+                </Menu> */}
                 <Button
                   id="basic-button"
                   aria-controls={open ? "basic-menu" : undefined}
@@ -366,7 +367,7 @@ function Nav2() {
                 >
                   Academic
                 </Button>
-                <Menu
+                {/* <Menu
                   sx={{ mt: 2 }}
                   id="basic-menu"
                   anchorEl={anchorEl}
@@ -402,7 +403,7 @@ function Nav2() {
                     <Divider></Divider>
                     <MenuItem>News & Events</MenuItem>
                   </Box>
-                </Menu>
+                </Menu> */}
                 <Button
                   id="basic-button"
                   aria-controls={open ? "basic-menu" : undefined}
@@ -437,7 +438,7 @@ function Nav2() {
                 >
                   Admission
                 </Button>
-                <Menu
+                {/* <Menu
                   sx={{ mt: 2 }}
                   id="basic-menu"
                   anchorEl={anchorEl}
@@ -473,7 +474,7 @@ function Nav2() {
                     <Divider></Divider>
                     <MenuItem>News & Events</MenuItem>
                   </Box>
-                </Menu>
+                </Menu> */}
                 <Button
                   onClick={handleCloseNavMenu}
                   onMouseOver={() => {

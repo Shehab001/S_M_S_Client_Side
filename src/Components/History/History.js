@@ -4,9 +4,9 @@ import React from "react";
 import img1 from "../../Assets/Ashkor_Ali_&_Sheikh_Kobbat_Mia_Building_(main_campus).jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import img from "../../Assets/Sajol-Vai.jpg";
 import haq from "../../Assets/Haque-Sir-862x1024.jpg";
-import Slider from "react-slick";
 
 const History = () => {
   var settings = {
@@ -17,7 +17,10 @@ const History = () => {
     slidesToScroll: 1,
   };
   return (
-    <Box sx={{ backgroundColor: "#e5e5e5", pt: 10, px: { xs: 2, md: 10 } }}>
+    <Box
+      id="aboutus"
+      sx={{ backgroundColor: "#e5e5e5", pt: 10, px: { xs: 2, md: 10 } }}
+    >
       <Typography
         sx={{
           fontFamily: "jest",
