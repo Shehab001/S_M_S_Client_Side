@@ -17,6 +17,7 @@
     "firebase": "^9.17.2",
     "framer-motion": "^10.0.1",
     "leaflet": "^1.9.3",
+    "lottie-react": "^2.4.0",
     "pdfjs-dist": "^3.3.122",
     "react": "^18.2.0",
     "react-card-slider-component": "^1.0.9",

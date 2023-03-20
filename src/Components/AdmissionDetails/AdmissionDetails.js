@@ -28,6 +28,15 @@ const AdmissionDetails = () => {
   };
   const [id, setId] = useState(0);
 
+  const handleSubmit = (event) => {
+    //setSpin(true);
+    event.preventDefault();
+
+    const form = event.target;
+    const name = form.name.value;
+    console.log(name);
+  };
+
   return (
     <div style={{ backgroundColor: "#e5e5e5", padding: "20px 0" }}>
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
@@ -93,11 +102,12 @@ const AdmissionDetails = () => {
           </div>
         </Slider>
         <Box my={5}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <TextField
               id="outlined-basic"
               label="File Link"
               variant="outlined"
+              name="name"
             />
             <Button
               variant="contained"
