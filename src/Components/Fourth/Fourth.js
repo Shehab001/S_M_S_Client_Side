@@ -52,13 +52,13 @@ const Fourth = () => {
         </motion.div>
       </Box>
       <Box>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={3}>
-            <motion.div
-              initial={{ x: 350, opacity: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-            >
+        <motion.div
+          initial={{ x: 350, opacity: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography>
                 <img src={img} alt="icon"></img>
               </Typography>
@@ -85,14 +85,8 @@ const Fourth = () => {
                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit
                 esse molestie consequat
               </Typography>
-            </motion.div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <motion.div
-              initial={{ x: 350, opacity: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-            >
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
               {" "}
               <Typography>
                 <img src={img1} alt="icon"></img>
@@ -119,14 +113,8 @@ const Fourth = () => {
                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit
                 esse molestie consequat
               </Typography>
-            </motion.div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <motion.div
-              initial={{ x: 350, opacity: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-            >
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography>
                 <img src={img2} alt="icon"></img>
               </Typography>
@@ -152,14 +140,8 @@ const Fourth = () => {
                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit
                 esse molestie consequat
               </Typography>
-            </motion.div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <motion.div
-              initial={{ x: 350, opacity: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-            >
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography>
                 <img src={img3} alt="icon"></img>
               </Typography>
@@ -185,9 +167,9 @@ const Fourth = () => {
                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit
                 esse molestie consequat
               </Typography>
-            </motion.div>
+            </Grid>
           </Grid>
-        </Grid>
+        </motion.div>
       </Box>
     </Box>
   );
