@@ -18,7 +18,7 @@ const Parents = () => {
   useEffect(() => {
     setSpin(true);
     axios
-      .get("http://localhost:5000/attendance")
+      .get("https://sms-server-side.vercel.app/attendance")
       .then(function (res) {
         // handle success
         setStudents(res.data);

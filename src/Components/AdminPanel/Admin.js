@@ -25,7 +25,7 @@ const Admin = () => {
   useEffect(() => {
     setSpin(true);
     axios
-      .get("http://localhost:5000/student")
+      .get("https://sms-server-side.vercel.app/student")
       .then(function (res) {
         // handle success
         setPersons(res.data);
@@ -41,7 +41,7 @@ const Admin = () => {
       });
 
     axios
-      .get("http://localhost:5000/teacher")
+      .get("https://sms-server-side.vercel.app/teacher")
       .then(function (res) {
         // handle success
         setTeacher(res.data);
@@ -61,7 +61,7 @@ const Admin = () => {
     // console.log(id);
     setSpin(true);
     axios
-      .get(`http://localhost:5000/deletestudent/${id}`)
+      .get(`https://sms-server-side.vercel.app/deletestudent/${id}`)
       .then(function (res) {
         // handle success
         setSpin(false);
@@ -85,7 +85,7 @@ const Admin = () => {
     // console.log(id);
     setSpin(true);
     axios
-      .get(`http://localhost:5000/deleteteacher/${id}`)
+      .get(`https://sms-server-side.vercel.app/deleteteacher/${id}`)
       .then(function (res) {
         // handle success
         setSpin(false);

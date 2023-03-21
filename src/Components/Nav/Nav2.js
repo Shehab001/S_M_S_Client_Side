@@ -137,9 +137,9 @@ function Nav2() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="aboutus" style={{ textDecoration: "none" }}>
+                    <a href="aboutus" style={{ textDecoration: "none" }}>
                       <Typography textAlign="center">About</Typography>
-                    </Link>
+                    </a>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/" style={{ textDecoration: "none" }}>
@@ -170,9 +170,9 @@ function Nav2() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="contact" style={{ textDecoration: "none" }}>
+                    <a href="contact" style={{ textDecoration: "none" }}>
                       <Typography textAlign="center">Contact</Typography>
-                    </Link>
+                    </a>
                   </MenuItem>
                 </Menu>
               </Box>
@@ -217,41 +217,43 @@ function Nav2() {
                     Home
                   </Button>
                 </Link>
+                <a href="#aboutus">
+                  <Button
+                    id="basic-button1"
+                    aria-controls={open ? "basic-menu1" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleCloseNavMenu}
+                    onMouseOver={(event) => {
+                      setActive(1);
+                      setAnchorEl(event.currentTarget);
+                    }}
+                    sx={
+                      active === 1
+                        ? {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 1,
+                            borderBottomColor: "red",
+                            transition: "1s",
+                            mx: 1,
+                          }
+                        : {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 0,
+                            mx: 1,
+                          }
+                    }
+                  >
+                    About
+                  </Button>
+                </a>
 
-                <Button
-                  id="basic-button1"
-                  aria-controls={open ? "basic-menu1" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={(event) => {
-                    setActive(1);
-                    setAnchorEl(event.currentTarget);
-                  }}
-                  sx={
-                    active === 1
-                      ? {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 1,
-                          borderBottomColor: "red",
-                          transition: "1s",
-                          mx: 1,
-                        }
-                      : {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 0,
-                          mx: 1,
-                        }
-                  }
-                >
-                  About
-                </Button>
                 {/* <Menu
                   sx={{ mt: 2 }}
                   id="basic-menu1"

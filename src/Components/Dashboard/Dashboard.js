@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     setSpin(true);
     axios
-      .get(`http://localhost:5000/user/${user.uid}`)
+      .get(`https://sms-server-side.vercel.app/user/${user.uid}`)
       .then(function (res) {
         // handle success
         setData(res.data?.role);

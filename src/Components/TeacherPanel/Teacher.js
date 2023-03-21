@@ -18,7 +18,7 @@ const Teacher = () => {
   useEffect(() => {
     setSpin(true);
     axios
-      .get("http://localhost:5000/student")
+      .get("https://sms-server-side.vercel.app/student")
       .then(function (res) {
         // handle success
         setStudents(res.data);
@@ -40,7 +40,7 @@ const Teacher = () => {
     // Send a POST request
     axios({
       method: "post",
-      url: "http://localhost:5000/attendance",
+      url: "https://sms-server-side.vercel.app/attendance",
       data: attendance,
     })
       .then((res) => {

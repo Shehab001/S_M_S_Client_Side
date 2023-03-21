@@ -8,6 +8,7 @@ import img3 from "../../Assets/thumb_557_370_240_0_0_crop.jpg";
 import img4 from "../../Assets/IMG-20221216-WA0005.jpg";
 import img5 from "../../Assets/2017_12$largeimg25_Monday_2017_005642153.jpg";
 import img6 from "../../Assets/images.jpg";
+import { motion } from "framer-motion";
 
 const Seventh = () => {
   const slides = [
@@ -44,6 +45,7 @@ const Seventh = () => {
   ];
   return (
     <Box
+      overflow={"hidden"}
       sx={{
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
@@ -52,32 +54,39 @@ const Seventh = () => {
       }}
     >
       <Box px={{ sm: 3, md: 10 }} pt={20} pb={5}>
-        <Typography
-          sx={{
-            fontFamily: "jest",
-            fontSize: "30px",
-            fontWeight: "bold",
-            letterSpacing: "3px",
-            px: 5,
-            mb: 2,
-          }}
+        <motion.div
+          initial={{ y: -150, opacity: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
-          RECENT AND UPCOMING EVENTS
-        </Typography>
-        <Typography
-          sx={{
-            fontFamily: "jest",
-            fontSize: "16px",
-            fontWeight: "semi-bold",
-            letterSpacing: "2px",
-            backgroundColor: "rgba(15,78,163,0.9)",
-            color: "white",
-            mx: { xs: "20px", sm: "40px", md: "200px" },
-          }}
-        >
-          I feel the presence of the Almighty, who formed us in his own image,
-          and the breath.
-        </Typography>
+          <Typography
+            sx={{
+              fontFamily: "jest",
+              fontSize: "30px",
+              fontWeight: "bold",
+              letterSpacing: "3px",
+              px: 5,
+              mb: 2,
+            }}
+          >
+            RECENT AND UPCOMING EVENTS
+          </Typography>
+          <Typography
+            sx={{
+              fontFamily: "jest",
+              fontSize: "16px",
+              fontWeight: "semi-bold",
+              letterSpacing: "2px",
+              backgroundColor: "rgba(15,78,163,0.9)",
+              color: "white",
+              mx: { xs: "20px", sm: "40px", md: "200px" },
+            }}
+          >
+            I feel the presence of the Almighty, who formed us in his own image,
+            and the breath.
+          </Typography>
+        </motion.div>
+
         <Divider
           sx={{
             borderColor: "rgba(15,78,163,0.9)",
@@ -90,7 +99,13 @@ const Seventh = () => {
         ></Divider>
       </Box>
       <Box sx={{ px: "9.1%", mt: 5, mb: 10 }}>
-        <ReactCardSlider slides={slides} />
+        <motion.div
+          initial={{ x: -350, opacity: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <ReactCardSlider slides={slides} />
+        </motion.div>
       </Box>
     </Box>
   );

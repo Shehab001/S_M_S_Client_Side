@@ -46,7 +46,7 @@ export default function SignUp() {
     console.log(userr);
     axios({
       method: "post",
-      url: "http://localhost:5000/saveuser",
+      url: "https://sms-server-side.vercel.app/saveuser",
       data: userr,
     })
       .then((res) => {
