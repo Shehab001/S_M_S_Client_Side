@@ -1,8 +1,10 @@
 import { CleaningServices } from "@mui/icons-material";
-import { Box, Button, Checkbox, TextField } from "@mui/material";
+import { Box, Button, Checkbox, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import Loader from "../Small/Loader/Loader";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Teacher = () => {
   const [spin, setSpin] = useState(false);
@@ -42,7 +44,9 @@ const Teacher = () => {
       data: attendance,
     })
       .then((res) => {
-        console.log(res);
+        if (res.data.acknowledged === true) {
+          toast.success("Attendance Saved");
+        }
         setSpin(false);
       })
       .catch(function (error) {
@@ -123,6 +127,22 @@ const Teacher = () => {
     useTable({ columns, data });
   return (
     <>
+      <ToastContainer position="top-center" autoClose={500} />
+      <Typography
+        sx={{
+          fontFamily: "jest",
+          letterSpacing: "1px",
+          fontSize: { md: "35px", xs: "20px" },
+          fontWeight: "bold",
+          color: "Black4",
+          textDecoration: "underline",
+          fontStyle: "italic",
+          my: 5,
+        }}
+      >
+        Attendance Sheet
+      </Typography>
+      <Box></Box>
       {spin === true ? (
         <Box sx={{ width: "300px", mx: "auto" }}>
           <Loader></Loader>
@@ -130,7 +150,7 @@ const Teacher = () => {
       ) : (
         <>
           {" "}
-          <Box sx={{ my: 10 }}>
+          <Box sx={{ mb: 10 }}>
             <table
               {...getTableProps()}
               style={{ border: "solid 1px blue", width: "100%" }}
@@ -180,7 +200,6 @@ const Teacher = () => {
                   );
                 })}
               </tbody>
-              )
             </table>
             <Box>
               <Button
