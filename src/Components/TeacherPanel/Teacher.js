@@ -133,7 +133,7 @@ const Teacher = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
   return (
-    <>
+    <Box mx={{ md: 10, sm: 5, xs: 0 }}>
       <ToastContainer position="top-center" autoClose={500} />
       <Typography
         sx={{
@@ -220,7 +220,7 @@ const Teacher = () => {
           </Box>
         </>
       )}
-    </>
+    </Box>
   );
 };
 

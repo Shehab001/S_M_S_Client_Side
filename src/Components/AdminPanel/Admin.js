@@ -18,7 +18,7 @@ const Admin = () => {
   const [teacher, setTeacher] = useState([]);
   const [list, setList] = useState("");
   const [fresh, setFresh] = useState(false);
-  console.log(teacher);
+  //console.log(teacher);
 
   var data = [];
 
@@ -65,7 +65,7 @@ const Admin = () => {
       .then(function (res) {
         // handle success
         setSpin(false);
-        console.log(res);
+        // console.log(res);
         if (res.data.deletedCount > 0) {
           toast.success("Deleted");
           setFresh(!fresh);
@@ -73,7 +73,7 @@ const Admin = () => {
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        // console.log(error);
         toast.error("Error");
         setSpin(false);
       })
@@ -89,7 +89,7 @@ const Admin = () => {
       .then(function (res) {
         // handle success
         setSpin(false);
-        console.log(res);
+        // console.log(res);
         if (res.data.deletedCount > 0) {
           toast.success("Deleted");
           setFresh(!fresh);
@@ -97,7 +97,7 @@ const Admin = () => {
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        // console.log(error);
         toast.error("Error");
         setSpin(false);
       })
@@ -268,7 +268,7 @@ const Admin = () => {
           </Box>
         </Box>
 
-        <Divider sx={{ color: "black", mt: 1, mb: 10 }}></Divider>
+        <Divider sx={{ color: "black", mt: 1, mb: 3 }}></Divider>
       </Box>
       {spin === true ? (
         <Box sx={{ width: "300px", mx: "auto", mb: 10 }}>

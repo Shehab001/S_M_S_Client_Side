@@ -74,7 +74,7 @@ const Parents = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
   return (
-    <Box>
+    <Box mx={{ md: 10, sm: 5, xs: 0 }}>
       <>
         <ToastContainer position="top-center" autoClose={500} />
         <Typography
@@ -99,7 +99,7 @@ const Parents = () => {
         ) : (
           <>
             <TextField
-              sx={{ float: "left", mb: 3, ml: 2 }}
+              sx={{ float: "left", mb: 3 }}
               label="ID"
               id="outlined-size-small"
               placeholder="ID"
