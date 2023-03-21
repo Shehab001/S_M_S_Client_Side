@@ -20,6 +20,7 @@ import { AuthContext } from "../../Context/Context";
 import { Paper } from "@mui/material";
 import study from "../Small/Lottie/SignUp.json";
 import Lottie from "lottie-react";
+const axios = require("axios");
 
 const theme = createTheme();
 
@@ -29,9 +30,38 @@ export default function SignUp() {
   const [error, setError] = React.useState("");
   //const [success, setSuccess] = React.useState(false);
   const [spin, setSpin] = React.useState(false);
+  const [role, setRole] = React.useState("student");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  const saveUser = (name, email, role, uid) => {
+    //console.log(name, url, email);
+    const userr = {
+      name: name,
+      email: email,
+      role: role,
+      uid: uid,
+    };
+    console.log(userr);
+    axios({
+      method: "post",
+      url: "http://localhost:5000/saveuser",
+      data: userr,
+    })
+      .then((res) => {
+        if (res.data.acknowledged === true) {
+          toast.success("User Added");
+        }
+        setSpin(false);
+      })
+      .catch(function (error) {
+        // handle error
+        setSpin(false);
+        toast.error("Error");
+        console.log(error);
+      });
+  };
 
   const handleSubmit = (event) => {
     setSpin(true);
@@ -58,7 +88,7 @@ export default function SignUp() {
         // setSuccess(true);
         form.reset();
         setError("");
-
+        saveUser(name, email, role, user.uid);
         handleUpdateUserProfile(img, name);
         setSpin(false);
         navigate(from, { replace: true });
@@ -67,6 +97,8 @@ export default function SignUp() {
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
+        setSpin(false);
+        toast.error("Error");
         // ..
       });
     const handleUpdateUserProfile = (img, name) => {
@@ -77,7 +109,7 @@ export default function SignUp() {
       console.log(profile);
       updateUserProfile(profile)
         .then(() => {})
-        .catch((error) => console.error(error));
+        .catch((error) => toast.error("Update Error"));
     };
   };
 
@@ -191,12 +223,16 @@ export default function SignUp() {
                             autoComplete="img"
                           />
                         </Grid>
-                        <Grid item xs={12} sx={{ textAlign: "start" }}>
+                        <Grid
+                          item
+                          xs={12}
+                          sx={{ textAlign: "start", color: "black" }}
+                        >
                           <FormControlLabel
                             control={
                               <Checkbox
                                 sx={{
-                                  color: "white",
+                                  color: "black",
                                 }}
                                 value="allowExtraEmails"
                                 color="primary"
@@ -204,6 +240,19 @@ export default function SignUp() {
                               />
                             }
                             label="Remember Me."
+                          />
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                value="teacher"
+                                color="primary"
+                                sx={{ ml: 5, color: "black" }}
+                                onClick={(event) => {
+                                  setRole(event.target.value);
+                                }}
+                              />
+                            }
+                            label="Teacher"
                           />
                         </Grid>
                       </Grid>

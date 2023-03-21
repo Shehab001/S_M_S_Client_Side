@@ -21,6 +21,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { AuthContext } from "../../Context/Context";
 import study from "../Small/Lottie/SignIn.json";
 import Lottie from "lottie-react";
+const axios = require("axios");
 
 const theme = createTheme();
 
@@ -38,6 +39,32 @@ export default function SignIn() {
   const googleProvider = new GoogleAuthProvider();
 
   //console.log(from);
+  const saveUser = (email, uid) => {
+    //console.log(name, url, email);
+    const userr = {
+      email: email,
+      role: "student",
+      uid: uid,
+    };
+    console.log(userr);
+    axios({
+      method: "post",
+      url: "http://localhost:5000/saveuser",
+      data: userr,
+    })
+      .then((res) => {
+        if (res.data.acknowledged === true) {
+          // toast.success("User Added");
+        }
+        setSpin(false);
+      })
+      .catch(function (error) {
+        // handle error
+        setSpin(false);
+        toast.error("Error");
+        console.log(error);
+      });
+  };
 
   const handleBtn = () => {
     // signInWithPopup(googleProvider)
@@ -47,6 +74,7 @@ export default function SignIn() {
       .then((result) => {
         const user = result.user;
         // setUser(user);
+        saveUser(user.email, user.uid);
         setSpin(false);
         toast.success("Logged In");
         navigate(from, { replace: true });
