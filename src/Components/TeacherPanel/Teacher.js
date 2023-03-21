@@ -12,7 +12,7 @@ const Teacher = () => {
   var data = [];
   var attendance = [];
   // console.log("hi", attendance.length);
-  // console.log(click);
+
   const axios = require("axios");
 
   useEffect(() => {
@@ -56,30 +56,36 @@ const Teacher = () => {
       });
   };
 
-  students.map((student) =>
-    data.push({
-      col1: student.name,
-      col2: student.id,
-      //  col3: new Date().toString().slice(0, 15),
-      col3: (
-        <Checkbox
-          name="cb"
-          onChange={(e) => {
-            console.log(e.target.checked);
-            //  setClick(!click);
-            //console.log(student.id);
-            let d = new Date();
-            attendance.push({
-              id: student.id,
-              name: student.name,
-              attendance: e.target.checked,
-              time: d.toString().slice(0, 15),
-            });
-            console.log(attendance);
-          }}
-        />
-      ),
-    })
+  students.map(
+    (student) => (
+      attendance.push({
+        name: student.name,
+        id: student.id,
+        attendance: true,
+        time: new Date().toString().slice(0, 15),
+      }),
+      // console.log("at", attendance),
+      data.push({
+        col1: student.id,
+        col2: student.name,
+        //  col3: new Date().toString().slice(0, 15),
+        col3: (
+          <Checkbox
+            name="cb"
+            defaultChecked
+            onChange={(e) => {
+              console.log(e.target.checked, student.id);
+              for (const i of attendance) {
+                if (i.id == student.id) {
+                  i.attendance = e.target.checked;
+                }
+                console.log(attendance);
+              }
+            }}
+          />
+        ),
+      })
+    )
   );
   //   const data = [
   //     {
@@ -104,13 +110,14 @@ const Teacher = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Name",
-        accessor: "col2", // accessor is the "key" in the data
-      },
-      {
         Header: "ID",
         accessor: "col1",
       },
+      {
+        Header: "Name",
+        accessor: "col2", // accessor is the "key" in the data
+      },
+
       //   {
       //     Header: "Time",
       //     accessor: "col3",
