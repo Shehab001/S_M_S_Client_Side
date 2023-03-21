@@ -19,7 +19,9 @@
     "leaflet": "^1.9.3",
     "lottie-react": "^2.4.0",
     "pdfjs-dist": "^3.3.122",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-axios": "^2.0.6",
     "react-card-slider-component": "^1.0.9",
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
@@ -30,6 +32,7 @@
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-table": "^7.8.0",
     "react-toastify": "^9.1.1",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"

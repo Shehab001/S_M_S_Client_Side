@@ -1,19 +1,30 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdmissionDetails from "../Components/AdmissionDetails/AdmissionDetails";
+import Dashboard from "../Components/Dashboard/Dashboard";
 import Header from "../Components/Header/Header";
+import Nav1 from "../Components/Nav/Nav1";
 import SignIn from "../Components/SignIn/SignIn";
 import SignUp from "../Components/SignUp/SignUp";
 import Main from "../Layout/Main";
+import Private from "../Layout/Private";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: (
+      <>
+        <Main></Main>
+      </>
+    ),
 
     children: [
       {
         path: "/",
-        element: <Header></Header>,
+        element: (
+          <>
+            <Header></Header>
+          </>
+        ),
       },
       // {
       //   path: "/signin",
@@ -31,14 +42,14 @@ const router = createBrowserRouter([
         path: "/signin",
         element: <SignIn></SignIn>,
       },
-      // {
-      //   path: "/myreview",
-      //   element: (
-      //     <Private>
-      //       <MyReview></MyReview>
-      //     </Private>
-      //   ),
-      // },
+      {
+        path: "/dashboard",
+        element: (
+          <Private>
+            <Dashboard></Dashboard>
+          </Private>
+        ),
+      },
       // {
       //   path: "/addservicee",
       //   element: <SingleService></SingleService>,

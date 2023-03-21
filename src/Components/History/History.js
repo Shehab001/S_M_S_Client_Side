@@ -1,12 +1,13 @@
 import { Divider, Grid, Typography } from "@mui/material";
 import { Box, letterSpacing } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import img1 from "../../Assets/Ashkor_Ali_&_Sheikh_Kobbat_Mia_Building_(main_campus).jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import img from "../../Assets/Sajol-Vai.jpg";
 import haq from "../../Assets/Haque-Sir-862x1024.jpg";
+const axios = require("axios");
 
 const History = () => {
   var settings = {
@@ -16,6 +17,7 @@ const History = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <Box
       id="aboutus"

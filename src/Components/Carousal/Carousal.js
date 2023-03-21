@@ -5,20 +5,21 @@ import "./Carousal.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
 import { fontFamily, letterSpacing } from "@mui/system";
+import { motion } from "framer-motion";
 
 const Carousal = () => {
   var items = [
     {
       img: img1,
       text: "Welcome To A.K. High School & College",
-      text1: "",
-      text2: "",
+      text1: "Eastablish In 1971",
+      text2: "Dania,Kadamtoly,Dhaka",
     },
     {
       img: img1,
       text: "Welcome To A.K. High School & College",
       text1: "Eastablish In 1971",
-      text2: "",
+      text2: "Dania,Kadamtoly,Dhaka",
     },
     {
       img: img1,
@@ -64,7 +65,14 @@ function Item(props) {
           color: "white",
         }}
       >
-        {props.item.text}
+        <motion.div
+          initial={{ x: -350, opacity: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          {props.item.text}
+        </motion.div>
+
         <Typography
           sx={{
             fontFamily: "jest",
@@ -73,7 +81,13 @@ function Item(props) {
             fontSize: "20px",
           }}
         >
-          {props.item.text1}
+          <motion.div
+            initial={{ x: -350, opacity: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 2 }}
+          >
+            {props.item.text1}
+          </motion.div>
         </Typography>
         <Typography
           sx={{
@@ -83,9 +97,16 @@ function Item(props) {
             fontSize: "20px",
           }}
         >
-          {props.item.text2}
+          <motion.div
+            initial={{ x: -350, opacity: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 3 }}
+          >
+            {props.item.text2}
+          </motion.div>
         </Typography>
       </Typography>
+
       <a href="#aboutus">
         <Button
           sx={{

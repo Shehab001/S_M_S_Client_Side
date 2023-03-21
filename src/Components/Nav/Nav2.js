@@ -137,8 +137,8 @@ function Nav2() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
-                      <Typography textAlign="center">About College</Typography>
+                    <Link to="aboutus" style={{ textDecoration: "none" }}>
+                      <Typography textAlign="center">About</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
@@ -152,27 +152,31 @@ function Nav2() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link
+                      to="admissiondetails"
+                      style={{ textDecoration: "none" }}
+                    >
                       <Typography textAlign="center">Admission</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link to="clubs" style={{ textDecoration: "none" }}>
                       <Typography textAlign="center">Club</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link to="gallery" style={{ textDecoration: "none" }}>
                       <Typography textAlign="center">Gallery</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link to="contact" style={{ textDecoration: "none" }}>
                       <Typography textAlign="center">Contact</Typography>
                     </Link>
                   </MenuItem>
                 </Menu>
               </Box>
+              {/* responsive finished */}
 
               <Box
                 sx={{
@@ -181,39 +185,42 @@ function Nav2() {
                   justifyContent: "flex-end",
                 }}
               >
-                <Button
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={() => {
-                    setActive(0);
-                  }}
-                  sx={
-                    active === 0
-                      ? {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 1,
-                          borderBottomColor: "red",
-                          transition: "1s",
-                          mx: 1,
-                        }
-                      : {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 0,
-                          mx: 1,
-                        }
-                  }
-                >
-                  Home
-                </Button>
+                <Link to="/">
+                  {" "}
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    onMouseOver={() => {
+                      setActive(0);
+                    }}
+                    sx={
+                      active === 0
+                        ? {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 1,
+                            borderBottomColor: "red",
+                            transition: "1s",
+                            mx: 1,
+                          }
+                        : {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 0,
+                            mx: 1,
+                          }
+                    }
+                  >
+                    Home
+                  </Button>
+                </Link>
 
                 <Button
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
+                  id="basic-button1"
+                  aria-controls={open ? "basic-menu1" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
                   onClick={handleCloseNavMenu}
@@ -245,16 +252,16 @@ function Nav2() {
                 >
                   About
                 </Button>
-                <Menu
+                {/* <Menu
                   sx={{ mt: 2 }}
-                  id="basic-menu"
+                  id="basic-menu1"
                   anchorEl={anchorEl}
                   open={open}
                   onClose={() => {
                     setAnchorEl(null);
                   }}
                   MenuListProps={{
-                    "aria-labelledby": "basic-button",
+                    "aria-labelledby": "basic-button1",
                   }}
                 >
                   <Box
@@ -281,7 +288,8 @@ function Nav2() {
                     <Divider></Divider>
                     <MenuItem>News & Events</MenuItem>
                   </Box>
-                </Menu>
+                </Menu> */}
+                {/* another button */}
                 <Button
                   id="basic-button2"
                   aria-controls={open ? "basic-menu2" : undefined}
@@ -325,10 +333,10 @@ function Nav2() {
                     setAnchorEl(null);
                   }}
                   MenuListProps={{
-                    "aria-labelledby": "basic-button",
+                    "aria-labelledby": "basic-button2",
                   }}
                 >
-                  {/* <Box
+                  <Box
                     sx={{ width: 300 }}
                     onMouseLeave={() => {
                       setAnchorEl(null);
@@ -348,9 +356,9 @@ function Nav2() {
                     <Divider></Divider>
                     <MenuItem>Faculty & Stuff Information</MenuItem>
                     <Divider></Divider>
-                  </Box> }
+                  </Box>
                 </Menu> */}
-                <Button
+                {/* <Button
                   id="basic-button"
                   aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
@@ -383,7 +391,7 @@ function Nav2() {
                   }
                 >
                   Academic
-                </Button>
+                </Button>  */}
                 {/* <Menu
                   sx={{ mt: 2 }}
                   id="basic-menu"
@@ -421,7 +429,7 @@ function Nav2() {
                     <MenuItem>News & Events</MenuItem>
                   </Box>
                 </Menu> */}
-                <Button
+                {/* <Button
                   id="basic-button"
                   aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
@@ -454,7 +462,7 @@ function Nav2() {
                   }
                 >
                   Admission
-                </Button>
+                </Button> */}
                 {/* <Menu
                   sx={{ mt: 2 }}
                   id="basic-menu"
@@ -584,6 +592,8 @@ function Nav2() {
                 </a>
               </Box>
 
+              {/* finished */}
+
               <Box sx={{ flexGrow: 0, mx: 1 }}>
                 <Tooltip title="Open settings">
                   <IconButton
@@ -618,11 +628,19 @@ function Nav2() {
                   onClose={handleCloseUserMenu}
                 >
                   {user?.uid ? (
-                    <Typography textAlign="center">
-                      <Button sx={{ px: 5 }} onClick={handleBtn}>
-                        Log Out
-                      </Button>
-                    </Typography>
+                    <>
+                      <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                        <Typography textAlign="center">
+                          <Button sx={{ px: 5 }}>Dashboard</Button>
+                        </Typography>
+                      </Link>
+
+                      <Typography textAlign="center">
+                        <Button sx={{ px: 5 }} onClick={handleBtn}>
+                          Log Out
+                        </Button>
+                      </Typography>
+                    </>
                   ) : (
                     <Box>
                       <MenuItem>
