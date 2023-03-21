@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <Box id="contact" mb={10} mx={10} overflow={"hidden"}>
       <motion.div
-        initial={{ y: -150, opacity: 0 }}
+        initial={{ y: -50, opacity: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
@@ -19,17 +19,17 @@ const Contact = () => {
             textAlign: "center",
             fontWeight: "bold",
             letterSpacing: "5px",
-            mb: 5,
+            mt: 5,
           }}
         >
           Contact Us
         </Typography>
       </motion.div>
 
-      <Grid container spacing={2} alignItems={"center"}>
+      <Grid container spacing={2} alignItems={"center"} py={5}>
         <Grid item xs={12} md={6}>
           <motion.div
-            initial={{ x: -350, opacity: 0 }}
+            initial={{ x: -150, opacity: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
@@ -39,7 +39,7 @@ const Contact = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <motion.div
-            initial={{ x: 350, opacity: 0 }}
+            initial={{ x: 150, opacity: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >

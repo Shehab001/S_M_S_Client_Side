@@ -85,11 +85,11 @@ const Sixth = () => {
               >
                 {" "}
                 <motion.div
-                  initial={{ x: 350, opacity: 0 }}
+                  initial={{ x: 150, opacity: 0 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <Typography sx={{ fontSize: "60px" }}>
+                  <Typography sx={{ fontSize: { xs: "40px", sm: "60px" } }}>
                     <CountUp
                       start={0}
                       end={175}
@@ -115,11 +115,11 @@ const Sixth = () => {
                 }}
               >
                 <motion.div
-                  initial={{ x: 350, opacity: 0 }}
+                  initial={{ x: 150, opacity: 0 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <Typography sx={{ fontSize: "60px" }}>
+                  <Typography sx={{ fontSize: { xs: "40px", sm: "60px" } }}>
                     <CountUp
                       start={0}
                       end={52}
@@ -146,12 +146,12 @@ const Sixth = () => {
               >
                 {" "}
                 <motion.div
-                  initial={{ x: 350, opacity: 0 }}
+                  initial={{ x: 150, opacity: 0 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1 }}
                 >
                   {" "}
-                  <Typography sx={{ fontSize: "60px" }}>
+                  <Typography sx={{ fontSize: { xs: "40px", sm: "60px" } }}>
                     <CountUp
                       start={0}
                       end={9176}
@@ -178,11 +178,11 @@ const Sixth = () => {
               >
                 {" "}
                 <motion.div
-                  initial={{ x: 350, opacity: 0 }}
+                  initial={{ x: 150, opacity: 0 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <Typography sx={{ fontSize: "60px" }}>
+                  <Typography sx={{ fontSize: { xs: "40px", sm: "60px" } }}>
                     <CountUp
                       start={0}
                       end={4}

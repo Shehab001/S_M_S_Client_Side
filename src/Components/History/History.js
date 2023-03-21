@@ -31,9 +31,9 @@ const History = () => {
       }}
     >
       <motion.div
-        initial={{ y: -150, opacity: 0 }}
+        initial={{ y: -50, opacity: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0 }}
+        transition={{ duration: 1 }}
       >
         <Typography
           sx={{
