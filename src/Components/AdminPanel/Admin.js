@@ -16,7 +16,8 @@ const Admin = () => {
   const [spin, setSpin] = useState(false);
   const [students, setStudents] = useState([]);
   const [list, setList] = useState("");
-  console.log(students);
+  const [fresh, setFresh] = useState(false);
+
   var data = [];
 
   useEffect(() => {
@@ -36,8 +37,34 @@ const Admin = () => {
       .finally(function () {
         // always executed
       });
-  }, []);
+  }, [fresh]);
 
+  const handleDelete = (id) => {
+    // console.log(id);
+    setSpin(true);
+    axios
+      .get(`http://localhost:5000/deletestudent/${id}`)
+      .then(function (res) {
+        // handle success
+        setSpin(false);
+        console.log(res);
+        if (res.data.deletedCount > 0) {
+          toast.success("Deleted");
+          setFresh(!fresh);
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        toast.error("Error");
+        setSpin(false);
+      })
+      .finally(function () {
+        // always executed
+      });
+  };
+
+  console.log(students);
   students.map((student) =>
     data.push({
       col1: student.id,
@@ -52,7 +79,7 @@ const Admin = () => {
             cursor: "pointer",
             "&:hover": { transform: "scale(1.5)" },
           }}
-          onClick={() => alert(student.id)}
+          onClick={() => handleDelete(student.name)}
         ></ClearIcon>
       ),
     })
@@ -182,7 +209,7 @@ const Admin = () => {
         <Divider sx={{ color: "black", mt: 1, mb: 10 }}></Divider>
       </Box>
       {spin === true ? (
-        <Box sx={{ width: "300px", mx: "auto" }}>
+        <Box sx={{ width: "300px", mx: "auto", mb: 10 }}>
           <Loader></Loader>
         </Box>
       ) : (
