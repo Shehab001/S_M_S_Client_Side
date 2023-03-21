@@ -14,9 +14,11 @@ const Admin = () => {
   const { user } = useContext(AuthContext);
   const [route, setRoute] = useState(false);
   const [spin, setSpin] = useState(false);
-  const [students, setStudents] = useState([]);
+  const [persons, setPersons] = useState([]);
+  const [teacher, setTeacher] = useState([]);
   const [list, setList] = useState("");
   const [fresh, setFresh] = useState(false);
+  console.log(teacher);
 
   var data = [];
 
@@ -26,7 +28,23 @@ const Admin = () => {
       .get("http://localhost:5000/student")
       .then(function (res) {
         // handle success
-        setStudents(res.data);
+        setPersons(res.data);
+        setSpin(false);
+        // console.log(res.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+
+    axios
+      .get("http://localhost:5000/teacher")
+      .then(function (res) {
+        // handle success
+        setTeacher(res.data);
         setSpin(false);
         // console.log(res.data);
       })
@@ -63,27 +81,71 @@ const Admin = () => {
         // always executed
       });
   };
+  const handleDeleteTeacher = (id) => {
+    // console.log(id);
+    setSpin(true);
+    axios
+      .get(`http://localhost:5000/deleteteacher/${id}`)
+      .then(function (res) {
+        // handle success
+        setSpin(false);
+        console.log(res);
+        if (res.data.deletedCount > 0) {
+          toast.success("Deleted");
+          setFresh(!fresh);
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        toast.error("Error");
+        setSpin(false);
+      })
+      .finally(function () {
+        // always executed
+      });
+  };
 
-  console.log(students);
-  students.map((student) =>
-    data.push({
-      col1: student.id,
-      col2: student.name,
-      col3: student.email,
-      col4: student.address.city,
-      col5: student.phone,
-      col6: (
-        <ClearIcon
-          sx={{
-            color: "red",
-            cursor: "pointer",
-            "&:hover": { transform: "scale(1.5)" },
-          }}
-          onClick={() => handleDelete(student.name)}
-        ></ClearIcon>
-      ),
-    })
-  );
+  // console.log(personss);
+  route === true
+    ? persons.map((person) =>
+        data.push({
+          col1: person.id,
+          col2: person.name,
+          col3: person.email,
+          col4: person.phone,
+          col5: person.address.city,
+          col6: (
+            <ClearIcon
+              sx={{
+                color: "red",
+                cursor: "pointer",
+                "&:hover": { transform: "scale(1.5)" },
+              }}
+              onClick={() => handleDelete(person.name)}
+            ></ClearIcon>
+          ),
+        })
+      )
+    : teacher.map((person) =>
+        data.push({
+          col1: person.id,
+          col2: `${person.firstName} ${person.lastName}`,
+          col3: person.email,
+          col4: person.phone,
+          col5: person.ad,
+          col6: (
+            <ClearIcon
+              sx={{
+                color: "red",
+                cursor: "pointer",
+                "&:hover": { transform: "scale(1.5)" },
+              }}
+              onClick={() => handleDeleteTeacher(person.name)}
+            ></ClearIcon>
+          ),
+        })
+      );
 
   const columns = React.useMemo(
     () => [
@@ -183,7 +245,7 @@ const Admin = () => {
                 setRoute(false);
               }}
             >
-              All Teacher
+              All Student
             </Button>
             <Button
               variant="contained"
@@ -201,7 +263,7 @@ const Admin = () => {
                 setRoute(true);
               }}
             >
-              All Student
+              All Teacher
             </Button>
           </Box>
         </Box>
@@ -295,3 +357,14 @@ const Admin = () => {
 };
 
 export default Admin;
+
+var x = [
+  {
+    age: "35",
+    class: " 8",
+    email: "babu@xyz.com",
+    firstName: "Ramesh",
+    id: "202",
+    lastName: "Babu",
+  },
+];
