@@ -18,24 +18,63 @@ import { Divider } from "@mui/material";
 import { AuthContext } from "../../Context/Context";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+//import { makeStyles } from "@material-ui/core/styles";
 
 const theme = createTheme({
   typography: {
     fontFamily: ["roboto"].join(","),
   },
 });
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     height: "100vh",
+//   },
+//   button: {
+//     marginRight: theme.spacing(2),
+//   },
+// }));
 
 function Nav2() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { user, logOut } = React.useContext(AuthContext);
-
-  const open = Boolean(anchorEl);
-
   const location = useLocation();
   let navigate = useNavigate();
   //console.log(location.pathname);
+  // for menu
+  const [menu1AnchorEl, setMenu1AnchorEl] = React.useState(null);
+  const [menu2AnchorEl, setMenu2AnchorEl] = React.useState(null);
+  const [menu3AnchorEl, setMenu3AnchorEl] = React.useState(null);
+
+  const open = Boolean(anchorEl);
+
+  // for menu
+  const handleMenu1Click = (event) => {
+    setMenu1AnchorEl(event.currentTarget);
+  };
+
+  const handleMenu2Click = (event) => {
+    setMenu2AnchorEl(event.currentTarget);
+  };
+  const handleMenu3Click = (event) => {
+    setMenu3AnchorEl(event.currentTarget);
+  };
+  const handleMenu1Close = () => {
+    setMenu1AnchorEl(null);
+  };
+
+  const handleMenu2Close = () => {
+    setMenu2AnchorEl(null);
+  };
+  const handleMenu3Close = () => {
+    setMenu3AnchorEl(null);
+  };
+
+  //const classes = useStyles();
 
   const handleBtn = () => {
     logOut()
@@ -62,6 +101,7 @@ function Nav2() {
   };
 
   const [active, setActive] = React.useState(0);
+
   return (
     <>
       <ToastContainer position="top-center" autoClose={500} />
@@ -89,6 +129,43 @@ function Nav2() {
           />
         </Link>
       </Box>
+      {/* <div>
+        <Button
+          variant="contained"
+          color="primary"
+          onMouseEnter={handleMenu1Click}
+          // onMouseLeave={handleMenu1Close}
+        >
+          Menu 1
+        </Button>
+        <Menu
+          anchorEl={menu1AnchorEl}
+          keepMounted
+          open={Boolean(menu1AnchorEl)}
+          onClose={handleMenu1Close}
+        >
+          <MenuItem onClick={handleMenu1Close}>Item 1</MenuItem>
+          <MenuItem onClick={handleMenu1Close}>Item 2</MenuItem>
+          <MenuItem onClick={handleMenu1Close}>Item 3</MenuItem>
+        </Menu>
+        <Button
+          variant="contained"
+          color="secondary"
+          onMouseEnter={handleMenu2Click}
+        >
+          Menu 2
+        </Button>
+        <Menu
+          anchorEl={menu2AnchorEl}
+          keepMounted
+          open={Boolean(menu2AnchorEl)}
+          onClose={handleMenu2Close}
+        >
+          <MenuItem onClick={handleMenu2Close}>Item 1</MenuItem>
+          <MenuItem onClick={handleMenu2Close}>Item 2</MenuItem>
+          <MenuItem onClick={handleMenu2Close}>Item 3</MenuItem>
+        </Menu>
+      </div> */}
       <ThemeProvider theme={theme}>
         {" "}
         <AppBar
@@ -220,14 +297,14 @@ function Nav2() {
                 <a href="#aboutus">
                   <Button
                     id="basic-button1"
-                    aria-controls={open ? "basic-menu1" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleCloseNavMenu}
-                    onMouseOver={(event) => {
+                    onMouseEnter={() => {
+                      // handleMenu1Click();
                       setActive(1);
-                      setAnchorEl(event.currentTarget);
                     }}
+                    // //onClick={handleCloseNavMenu}
+                    // onMouseOver={(event) => {
+                    //   setAnchorEl(event.currentTarget);
+                    // }}
                     sx={
                       active === 1
                         ? {
@@ -254,54 +331,14 @@ function Nav2() {
                   </Button>
                 </a>
 
-                {/* <Menu
-                  sx={{ mt: 2 }}
-                  id="basic-menu1"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={() => {
-                    setAnchorEl(null);
-                  }}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button1",
-                  }}
-                >
-                  <Box
-                    sx={{ width: 300 }}
-                    onMouseLeave={() => {
-                      setAnchorEl(null);
-                    }}
-                  >
-                    <MenuItem
-                      sx={{
-                        "&:hover": {
-                          transform: "scale(1.1)",
-                          transition: ".1s",
-                          ml: 2,
-                        },
-                      }}
-                    >
-                      At A Glance
-                    </MenuItem>
-                    <Divider></Divider>
-                    <MenuItem>History</MenuItem>
-                    <Divider></Divider>
-                    <MenuItem>Infrastructure</MenuItem>
-                    <Divider></Divider>
-                    <MenuItem>News & Events</MenuItem>
-                  </Box>
-                </Menu> */}
                 {/* another button */}
+
                 <Button
-                  id="basic-button2"
-                  aria-controls={open ? "basic-menu2" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={(event) => {
+                  onMouseEnter={(event) => {
+                    handleMenu1Click(event);
                     setActive(2);
-                    setAnchorEl(event.currentTarget);
                   }}
+                  //onMouseOver={setActive(2)}
                   sx={
                     active === 2
                       ? {
@@ -326,50 +363,54 @@ function Nav2() {
                 >
                   Administration
                 </Button>
-                {/* <Menu
-                  sx={{ mt: 2 }}
-                  id="basic-menu2"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={() => {
-                    setAnchorEl(null);
-                  }}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button2",
-                  }}
+
+                <Menu
+                  anchorEl={menu1AnchorEl}
+                  keepMounted
+                  open={Boolean(menu1AnchorEl)}
+                  onClose={handleMenu1Close}
                 >
-                  <Box
-                    sx={{ width: 300 }}
-                    onMouseLeave={() => {
-                      setAnchorEl(null);
-                    }}
-                  >
+                  <Box sx={{ width: 300 }} onMouseLeave={handleMenu1Close}>
+                    <Divider></Divider>
                     <MenuItem
+                      onClick={handleMenu2Close}
                       sx={{
+                        fontFamily: "jest",
                         "&:hover": {
                           transform: "scale(1.1)",
                           transition: ".1s",
                           ml: 2,
+                          fontFamily: "jest",
                         },
                       }}
                     >
                       Governing Body
                     </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>Faculty & Stuff Information</MenuItem>
+                    <MenuItem
+                      onClick={handleMenu2Close}
+                      sx={{
+                        fontFamily: "jest",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: ".1s",
+                          ml: 2,
+                          fontFamily: "jest",
+                        },
+                      }}
+                    >
+                      Code of Conducts
+                    </MenuItem>
                     <Divider></Divider>
                   </Box>
-                </Menu> */}
-                {/* <Button
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={(event) => {
+                </Menu>
+
+                <Button
+                  onMouseEnter={(event) => {
+                    handleMenu2Click(event);
                     setActive(3);
-                    setAnchorEl(event.currentTarget);
                   }}
+                  //onMouseOver={setActive(2)}
                   sx={
                     active === 3
                       ? {
@@ -393,54 +434,69 @@ function Nav2() {
                   }
                 >
                   Academic
-                </Button>  */}
-                {/* <Menu
-                  sx={{ mt: 2 }}
-                  id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={() => {
-                    setAnchorEl(null);
-                  }}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button",
-                  }}
+                </Button>
+
+                <Menu
+                  anchorEl={menu2AnchorEl}
+                  keepMounted
+                  open={Boolean(menu2AnchorEl)}
+                  onClose={handleMenu2Close}
                 >
-                  <Box
-                    sx={{ width: 300 }}
-                    onMouseLeave={() => {
-                      setAnchorEl(null);
-                    }}
-                  >
+                  <Box sx={{ width: 300 }} onMouseLeave={handleMenu2Close}>
+                    <Divider></Divider>
                     <MenuItem
+                      onClick={handleMenu2Close}
                       sx={{
+                        fontFamily: "jest",
                         "&:hover": {
                           transform: "scale(1.1)",
                           transition: ".1s",
                           ml: 2,
+                          fontFamily: "jest",
                         },
                       }}
                     >
-                      At A Glance
+                      Code of Conducts
                     </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>History</MenuItem>
+                    <MenuItem
+                      onClick={handleMenu2Close}
+                      sx={{
+                        fontFamily: "jest",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: ".1s",
+                          ml: 2,
+                          fontFamily: "jest",
+                        },
+                      }}
+                    >
+                      Parents Guideline
+                    </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>Infrastructure</MenuItem>
+                    <MenuItem
+                      onClick={handleMenu2Close}
+                      sx={{
+                        fontFamily: "jest",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: ".1s",
+                          ml: 2,
+                          fontFamily: "jest",
+                        },
+                      }}
+                    >
+                      Dress Code
+                    </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>News & Events</MenuItem>
                   </Box>
-                </Menu> */}
-                {/* <Button
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={(event) => {
+                </Menu>
+                <Button
+                  onMouseEnter={(event) => {
+                    handleMenu3Click(event);
                     setActive(4);
-                    setAnchorEl(event.currentTarget);
                   }}
+                  //onMouseOver={setActive(2)}
                   sx={
                     active === 4
                       ? {
@@ -464,44 +520,75 @@ function Nav2() {
                   }
                 >
                   Admission
-                </Button> */}
-                {/* <Menu
-                  sx={{ mt: 2 }}
-                  id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={() => {
-                    setAnchorEl(null);
-                  }}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button",
-                  }}
+                </Button>
+
+                <Menu
+                  anchorEl={menu3AnchorEl}
+                  keepMounted
+                  open={Boolean(menu3AnchorEl)}
+                  onClose={handleMenu3Close}
                 >
-                  <Box
-                    sx={{ width: 300 }}
-                    onMouseLeave={() => {
-                      setAnchorEl(null);
-                    }}
-                  >
+                  <Box sx={{ width: 300 }} onMouseLeave={handleMenu3Close}>
+                    <Divider></Divider>
+                    <MenuItem
+                      onClick={handleMenu3Close}
+                      sx={{
+                        fontFamily: "jest",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: ".1s",
+                          ml: 2,
+                          fontFamily: "jest",
+                        },
+                      }}
+                    >
+                      Apply Now
+                    </MenuItem>
+                    <Divider></Divider>
                     <MenuItem
                       sx={{
+                        fontFamily: "jest",
                         "&:hover": {
                           transform: "scale(1.1)",
                           transition: ".1s",
                           ml: 2,
                         },
                       }}
+                      onClick={handleMenu3Close}
                     >
-                      At A Glance
+                      Fees & Payment
                     </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>History</MenuItem>
+                    <MenuItem
+                      sx={{
+                        fontFamily: "jest",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: ".1s",
+                          ml: 2,
+                        },
+                      }}
+                      onClick={handleMenu3Close}
+                    >
+                      Scholarships
+                    </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>Infrastructure</MenuItem>
+                    <MenuItem
+                      sx={{
+                        fontFamily: "jest",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: ".1s",
+                          ml: 2,
+                        },
+                      }}
+                      onClick={handleMenu3Close}
+                    >
+                      Transfer Procedures
+                    </MenuItem>
                     <Divider></Divider>
-                    <MenuItem>News & Events</MenuItem>
                   </Box>
-                </Menu> */}
+                </Menu>
                 <Button
                   onClick={handleCloseNavMenu}
                   onMouseOver={() => {
@@ -666,7 +753,7 @@ function Nav2() {
               </Box>
             </Toolbar>
           </Container>
-        </AppBar>
+        </AppBar>{" "}
       </ThemeProvider>
     </>
   );
