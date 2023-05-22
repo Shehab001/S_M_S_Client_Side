@@ -103,16 +103,17 @@ function Nav2() {
   const [active, setActive] = React.useState(0);
 
   return (
-    <>
+    <Box>
       <ToastContainer position="top-center" autoClose={500} />
       <Box
         py={2}
         sx={{
-          position: "absolute",
+          display: { xl: "none" },
+          position: { xs: "absolute" },
           zIndex: 1500,
           top: { xs: 55, sm: 50 },
           left: { xs: "30%", sm: "40%", md: 50 },
-          transform: { xs: "translate(50,-40%)", md: "none" },
+          transform: { xs: "translate(-50,-40%)", md: "none" },
           cursor: "pointer",
           "&:hover": {
             transform: "scale(1.1)",
@@ -129,43 +130,7 @@ function Nav2() {
           />
         </Link>
       </Box>
-      {/* <div>
-        <Button
-          variant="contained"
-          color="primary"
-          onMouseEnter={handleMenu1Click}
-          // onMouseLeave={handleMenu1Close}
-        >
-          Menu 1
-        </Button>
-        <Menu
-          anchorEl={menu1AnchorEl}
-          keepMounted
-          open={Boolean(menu1AnchorEl)}
-          onClose={handleMenu1Close}
-        >
-          <MenuItem onClick={handleMenu1Close}>Item 1</MenuItem>
-          <MenuItem onClick={handleMenu1Close}>Item 2</MenuItem>
-          <MenuItem onClick={handleMenu1Close}>Item 3</MenuItem>
-        </Menu>
-        <Button
-          variant="contained"
-          color="secondary"
-          onMouseEnter={handleMenu2Click}
-        >
-          Menu 2
-        </Button>
-        <Menu
-          anchorEl={menu2AnchorEl}
-          keepMounted
-          open={Boolean(menu2AnchorEl)}
-          onClose={handleMenu2Close}
-        >
-          <MenuItem onClick={handleMenu2Close}>Item 1</MenuItem>
-          <MenuItem onClick={handleMenu2Close}>Item 2</MenuItem>
-          <MenuItem onClick={handleMenu2Close}>Item 3</MenuItem>
-        </Menu>
-      </div> */}
+
       <ThemeProvider theme={theme}>
         {" "}
         <AppBar
@@ -618,35 +583,38 @@ function Nav2() {
                 >
                   Clubs
                 </Button>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={() => {
-                    setActive(6);
-                  }}
-                  sx={
-                    active === 6
-                      ? {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 1,
-                          borderBottomColor: "red",
-                          transition: "1s",
-                          mx: 1,
-                        }
-                      : {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 0,
-                          mx: 1,
-                        }
-                  }
-                >
-                  Gallery
-                </Button>
+                <Link to="/gallery" style={{ textDecoration: "none" }}>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    onMouseOver={() => {
+                      setActive(6);
+                    }}
+                    sx={
+                      active === 6
+                        ? {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 1,
+                            borderBottomColor: "red",
+                            transition: "1s",
+                            mx: 1,
+                          }
+                        : {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 0,
+                            mx: 1,
+                          }
+                    }
+                  >
+                    Gallery
+                  </Button>
+                </Link>
+
                 <a href="#contact">
                   {" "}
                   <Button
@@ -755,7 +723,7 @@ function Nav2() {
           </Container>
         </AppBar>{" "}
       </ThemeProvider>
-    </>
+    </Box>
   );
 }
 export default Nav2;

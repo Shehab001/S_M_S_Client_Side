@@ -43,7 +43,7 @@ export default function SignUp() {
       role: role,
       uid: uid,
     };
-    console.log(userr);
+    //console.log(userr);
     axios({
       method: "post",
       url: "https://sms-server-side.vercel.app/saveuser",

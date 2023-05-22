@@ -17,7 +17,7 @@ import Nav2 from "../Components/Nav/Nav2";
 
 const Main = () => {
   return (
-    <Box maxWidth={"1440px"}>
+    <Box maxWidth={"1536px"} mx={"auto"}>
       <Nav1></Nav1>
       <Nav2></Nav2>
 

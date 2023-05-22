@@ -1,6 +1,6 @@
 import React from "react";
 import img1 from "../../Assets/scll.png";
-import img2 from "../../Assets/aa.jpg";
+
 import "./Carousal.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
@@ -13,19 +13,7 @@ const Carousal = () => {
       img: img1,
       text: "Welcome To A.K. High School & College",
       text1: "Eastablish In 1971",
-      text2: "Dania,Kadamtoly,Dhaka",
-    },
-    {
-      img: img1,
-      text: "Welcome To A.K. High School & College",
-      text1: "Eastablish In 1971",
-      text2: "Dania,Kadamtoly,Dhaka",
-    },
-    {
-      img: img1,
-      text: "Welcome To A.K. High School & College",
-      text1: "Eastablish In 1971",
-      text2: "Dania,Kadamtoly,Dhaka",
+      text2: "1236-Dania,Kadamtoly,Dhaka",
     },
   ];
   return (
@@ -60,7 +48,7 @@ function Item(props) {
           transform: "translate(-50%,-40%)",
           fontFamily: "jest",
           fontWeight: "bold",
-          fontSize: { xs: "30px", sm: "40px", md: 50 },
+          fontSize: { xs: "20px", sm: "40px", md: 50 },
           letterSpacing: "3px",
           color: "white",
         }}
@@ -78,7 +66,7 @@ function Item(props) {
             fontFamily: "jest",
             fontWeight: "semi-bold",
             letterSpacing: "3px",
-            fontSize: "20px",
+            fontSize: "18px",
           }}
         >
           <motion.div
@@ -94,7 +82,8 @@ function Item(props) {
             fontFamily: "jest",
             fontWeight: "semi-bold",
             letterSpacing: "3px",
-            fontSize: "20px",
+            fontSize: "18px",
+            mt: { xs: "5px" },
           }}
         >
           <motion.div
@@ -107,25 +96,37 @@ function Item(props) {
         </Typography>
       </Typography>
 
-      <a href="#aboutus">
-        <Button
-          sx={{
-            backgroundImage:
-              "linear-gradient(to right top, #6b7ad1, #5a67c1, #4a54b2, #3941a2, #282f92, #1f278b, #151e85, #08157e, #06157e, #04147f, #02147f, #00137f)",
+      <motion.div
+        initial={{ x: 0, opacity: 0 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 4 }}
+      >
+        <a
+          href="#aboutus"
+          style={{
             position: "absolute",
             bottom: "10%",
             left: "50%",
             transform: "translate(-50%,-10%)",
-            color: "white",
-            fontFamily: "jest",
-            letterSpacing: "3px",
-            py: 1,
-            px: 3,
+            border: "1 px solid black",
           }}
         >
-          Know Us
-        </Button>
-      </a>
+          <Button
+            sx={{
+              backgroundImage:
+                "linear-gradient(to right top, #6b7ad1, #5a67c1, #4a54b2, #3941a2, #282f92, #1f278b, #151e85, #08157e, #06157e, #04147f, #02147f, #00137f)",
+
+              color: "white",
+              fontFamily: "jest",
+              letterSpacing: "3px",
+              py: 1,
+              px: 3,
+            }}
+          >
+            Know Us
+          </Button>
+        </a>
+      </motion.div>
     </Paper>
   );
 }

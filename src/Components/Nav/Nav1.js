@@ -78,7 +78,7 @@ const Nav1 = () => {
                 },
               }}
             >
-              +8801790199194
+              7445613
             </Typography>
           </Grid>
         </Grid>

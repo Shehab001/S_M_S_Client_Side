@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdmissionDetails from "../Components/AdmissionDetails/AdmissionDetails";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import Error from "../Components/Error";
+import Gallery from "../Components/Gallery/Gallery";
 import Header from "../Components/Header/Header";
 import Nav1 from "../Components/Nav/Nav1";
 import SignIn from "../Components/SignIn/SignIn";
@@ -50,10 +52,10 @@ const router = createBrowserRouter([
           </Private>
         ),
       },
-      // {
-      //   path: "/addservicee",
-      //   element: <SingleService></SingleService>,
-      // },
+      {
+        path: "/gallery",
+        element: <Gallery></Gallery>,
+      },
       // {
       //   path: "/addservice",
       //   element: <AddService></AddService>,
@@ -70,10 +72,10 @@ const router = createBrowserRouter([
       //       `https://travel-site-backend.vercel.app/singleservice/${params.id}`
       //     ),
       // },
-      // {
-      //   path: "*",
-      //   element: <Error></Error>,
-      // },
+      {
+        path: "*",
+        element: <Error></Error>,
+      },
     ],
   },
 ]);
