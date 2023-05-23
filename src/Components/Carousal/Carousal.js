@@ -13,7 +13,7 @@ const Carousal = () => {
       img: img1,
       text: "Welcome To A.K. High School & College",
       text1: "Eastablish In 1971",
-      text2: "Dania,Kadamtoly,Dhaka",
+      text2: "Dania,Dhaka-1236",
     },
   ];
   return (
@@ -37,6 +37,7 @@ function Item(props) {
           objectFit: "cover",
           width: "100%",
           height: "70vh",
+
           opacity: 0.8,
         }}
       ></img>
