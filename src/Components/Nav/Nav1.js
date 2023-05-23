@@ -57,6 +57,7 @@ const Nav1 = () => {
             <Typography
               sx={{
                 fontWeight: "bold",
+                fontSize: { xs: "11px", sm: "16px" },
                 letterSpacing: "2px",
                 "&:hover": {
                   transform: "scale(1.1)",
@@ -65,11 +66,12 @@ const Nav1 = () => {
                 },
               }}
             >
-              akhighschool@edu.bd
+              akhighschool71@yahoo.com
             </Typography>
             <Typography
               sx={{
                 fontWeight: "bold",
+                fontSize: { xs: "11px", sm: "16px" },
                 letterSpacing: "2px",
                 "&:hover": {
                   cursor: "pointer",

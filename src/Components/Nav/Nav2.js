@@ -14,10 +14,11 @@ import MenuItem from "@mui/material/MenuItem";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Divider } from "@mui/material";
+import { Divider, Popover } from "@mui/material";
 import { AuthContext } from "../../Context/Context";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { borderColor } from "@mui/system";
 //import { makeStyles } from "@material-ui/core/styles";
 
 const theme = createTheme({
@@ -42,6 +43,11 @@ function Nav2() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { user, logOut } = React.useContext(AuthContext);
+  // responsive menu popover
+  const [anchorEll, setAnchorEll] = React.useState(null);
+  const [anchorEll1, setAnchorEll1] = React.useState(null);
+  const [anchorEll2, setAnchorEll2] = React.useState(null);
+
   const location = useLocation();
   let navigate = useNavigate();
   //console.log(location.pathname);
@@ -102,6 +108,33 @@ function Nav2() {
 
   const [active, setActive] = React.useState(0);
 
+  // responsive menu popover
+  const handlePopoverOpen = (event) => {
+    setAnchorEll(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEll(null);
+  };
+  const handlePopoverOpen1 = (event) => {
+    setAnchorEll1(event.currentTarget);
+  };
+
+  const handlePopoverClose1 = () => {
+    setAnchorEll1(null);
+  };
+  const handlePopoverOpen2 = (event) => {
+    setAnchorEll2(event.currentTarget);
+  };
+
+  const handlePopoverClose2 = () => {
+    setAnchorEll2(null);
+  };
+
+  const openn = Boolean(anchorEll);
+  const openn1 = Boolean(anchorEll1);
+  const openn2 = Boolean(anchorEll2);
+
   return (
     <Box>
       <ToastContainer position="top-center" autoClose={500} />
@@ -144,7 +177,12 @@ function Nav2() {
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               {/* responsive */}
-              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "flex", md: "none" },
+                }}
+              >
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -173,49 +211,214 @@ function Nav2() {
                     display: { xs: "block", md: "none" },
                   }}
                 >
+                  <Divider></Divider>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link
+                      to="/"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
                       <Typography textAlign="center">Home</Typography>
                     </Link>
                   </MenuItem>
+                  <Divider></Divider>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <a href="aboutus" style={{ textDecoration: "none" }}>
-                      <Typography textAlign="center">About</Typography>
-                    </a>
+                    <Typography
+                      textAlign="center"
+                      aria-owns={openn ? "mouse-over-popover" : undefined}
+                      aria-haspopup="true"
+                      onMouseEnter={handlePopoverOpen}
+                      onMouseLeave={handlePopoverClose}
+                      color={"black"}
+                    >
+                      Administration
+                    </Typography>
+                    <Popover
+                      id="mouse-over-popover"
+                      sx={{
+                        pointerEvents: "none",
+                      }}
+                      open={openn}
+                      anchorEl={anchorEll}
+                      anchorOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "left",
+                      }}
+                      onClose={handlePopoverClose}
+                      disableRestoreFocus
+                    >
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Divider></Divider>
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Governing Body
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Faculty & Staffs
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                    </Popover>
                   </MenuItem>
+                  <Divider></Divider>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
-                      <Typography textAlign="center">Administration</Typography>
-                    </Link>
+                    <Typography
+                      textAlign="center"
+                      aria-owns={openn1 ? "mouse-over-popover1" : undefined}
+                      aria-haspopup="true"
+                      onMouseEnter={handlePopoverOpen1}
+                      onMouseLeave={handlePopoverClose1}
+                      color={"black"}
+                    >
+                      Admission
+                    </Typography>
+                    <Popover
+                      id="mouse-over-popover1"
+                      sx={{
+                        pointerEvents: "none",
+                      }}
+                      open={openn1}
+                      anchorEl={anchorEll1}
+                      anchorOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "left",
+                      }}
+                      onClose={handlePopoverClose1}
+                      disableRestoreFocus
+                    >
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Apply Now
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Fees & Payment
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Scholarships
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Transfer Procedure
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                    </Popover>
                   </MenuItem>
+                  <Divider></Divider>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
-                      <Typography textAlign="center">Academic</Typography>
-                    </Link>
+                    <Typography
+                      textAlign="center"
+                      aria-owns={openn2 ? "mouse-over-popover2" : undefined}
+                      aria-haspopup="true"
+                      onMouseEnter={handlePopoverOpen2}
+                      onMouseLeave={handlePopoverClose2}
+                      color={"black"}
+                    >
+                      Academic
+                    </Typography>
+                    <Popover
+                      id="mouse-over-popover2"
+                      sx={{
+                        pointerEvents: "none",
+                      }}
+                      open={openn2}
+                      anchorEl={anchorEll2}
+                      anchorOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "left",
+                      }}
+                      onClose={handlePopoverClose2}
+                      disableRestoreFocus
+                    >
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Code Of Conducts
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Parents Guideline
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <Typography textAlign="center" sx={{ px: 3, py: 1 }}>
+                          Dress Code
+                        </Typography>
+                      </Link>
+                      <Divider></Divider>
+                    </Popover>
                   </MenuItem>
+                  <Divider></Divider>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link
-                      to="admissiondetails"
-                      style={{ textDecoration: "none" }}
+                      to="club"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
-                      <Typography textAlign="center">Admission</Typography>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="clubs" style={{ textDecoration: "none" }}>
                       <Typography textAlign="center">Club</Typography>
                     </Link>
                   </MenuItem>
+                  <Divider></Divider>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="gallery" style={{ textDecoration: "none" }}>
+                    <Link
+                      to="gallery"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
                       <Typography textAlign="center">Gallery</Typography>
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <a href="contact" style={{ textDecoration: "none" }}>
-                      <Typography textAlign="center">Contact</Typography>
-                    </a>
-                  </MenuItem>
+                  <Divider></Divider>
                 </Menu>
               </Box>
               {/* responsive finished */}
@@ -259,42 +462,6 @@ function Nav2() {
                     Home
                   </Button>
                 </Link>
-                <a href="#aboutus">
-                  <Button
-                    id="basic-button1"
-                    onMouseEnter={() => {
-                      // handleMenu1Click();
-                      setActive(1);
-                    }}
-                    // //onClick={handleCloseNavMenu}
-                    // onMouseOver={(event) => {
-                    //   setAnchorEl(event.currentTarget);
-                    // }}
-                    sx={
-                      active === 1
-                        ? {
-                            my: 2,
-                            color: "white",
-                            display: "block",
-                            borderRadius: 0,
-                            borderBottom: 1,
-                            borderBottomColor: "red",
-                            transition: "1s",
-                            mx: 1,
-                          }
-                        : {
-                            my: 2,
-                            color: "white",
-                            display: "block",
-                            borderRadius: 0,
-                            borderBottom: 0,
-                            mx: 1,
-                          }
-                    }
-                  >
-                    About
-                  </Button>
-                </a>
 
                 {/* another button */}
 
@@ -364,7 +531,7 @@ function Nav2() {
                         },
                       }}
                     >
-                      Code of Conducts
+                      Faculty & Staffs
                     </MenuItem>
                     <Divider></Divider>
                   </Box>
@@ -554,35 +721,38 @@ function Nav2() {
                     <Divider></Divider>
                   </Box>
                 </Menu>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  onMouseOver={() => {
-                    setActive(5);
-                  }}
-                  sx={
-                    active === 5
-                      ? {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 1,
-                          borderBottomColor: "red",
-                          transition: "1s",
-                          mx: 1,
-                        }
-                      : {
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          borderRadius: 0,
-                          borderBottom: 0,
-                          mx: 1,
-                        }
-                  }
-                >
-                  Clubs
-                </Button>
+                <Link to="/club" style={{ textDecoration: "none" }}>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    onMouseOver={() => {
+                      setActive(5);
+                    }}
+                    sx={
+                      active === 5
+                        ? {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 1,
+                            borderBottomColor: "red",
+                            transition: "1s",
+                            mx: 1,
+                          }
+                        : {
+                            my: 2,
+                            color: "white",
+                            display: "block",
+                            borderRadius: 0,
+                            borderBottom: 0,
+                            mx: 1,
+                          }
+                    }
+                  >
+                    Clubs
+                  </Button>
+                </Link>
+
                 <Link to="/gallery" style={{ textDecoration: "none" }}>
                   <Button
                     onClick={handleCloseNavMenu}
@@ -614,39 +784,6 @@ function Nav2() {
                     Gallery
                   </Button>
                 </Link>
-
-                <a href="#contact">
-                  {" "}
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    onMouseOver={() => {
-                      setActive(7);
-                    }}
-                    sx={
-                      active === 7
-                        ? {
-                            my: 2,
-                            color: "white",
-                            display: "block",
-                            borderRadius: 0,
-                            borderBottom: 1,
-                            borderBottomColor: "red",
-                            transition: "1s",
-                            mx: 1,
-                          }
-                        : {
-                            my: 2,
-                            color: "white",
-                            display: "block",
-                            borderRadius: 0,
-                            borderBottom: 0,
-                            mx: 1,
-                          }
-                    }
-                  >
-                    Contact
-                  </Button>
-                </a>
               </Box>
 
               {/* finished */}
@@ -655,7 +792,7 @@ function Nav2() {
                 <Tooltip title="Open settings">
                   <IconButton
                     onClick={handleOpenUserMenu}
-                    sx={{ pt: 0, "&:hover": { transform: "scale(1.1)" } }}
+                    sx={{ pt: 1, "&:hover": { transform: "scale(1.1)" } }}
                   >
                     {user?.uid ? (
                       <Avatar

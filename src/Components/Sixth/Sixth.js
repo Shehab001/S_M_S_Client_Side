@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import img from "../../Assets/image.jpg";
-import img1 from "../../Assets/62a0432a90c05993939702.png";
+import img1 from "../../Assets/341326934_611197460864639_8687326514792805156_n.jpg";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import Tilt from "react-tilt";

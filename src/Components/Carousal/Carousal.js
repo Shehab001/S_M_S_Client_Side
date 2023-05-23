@@ -13,7 +13,7 @@ const Carousal = () => {
       img: img1,
       text: "Welcome To A.K. High School & College",
       text1: "Eastablish In 1971",
-      text2: "1236-Dania,Kadamtoly,Dhaka",
+      text2: "Dania,Kadamtoly,Dhaka",
     },
   ];
   return (
@@ -67,6 +67,7 @@ function Item(props) {
             fontWeight: "semi-bold",
             letterSpacing: "3px",
             fontSize: "18px",
+            mt: 4,
           }}
         >
           <motion.div

@@ -222,7 +222,7 @@ const Footer = () => {
                 backgroundColor: "#a6b5d4",
               }}
             >
-              <Link to="/">
+              <Link to="https://www.facebook.com/akschool71">
                 <FacebookIcon sx={{ mt: "5px", color: "white" }}></FacebookIcon>
               </Link>
             </Box>
@@ -264,7 +264,8 @@ const Footer = () => {
             color: "white",
           }}
         >
-          Copyright 2022-2023 | ALL RIGHTS RESERVED BY MD.SHEHAB CHOWDHURY |©
+          Copyright 2022-2023 | ALL RIGHTS RESERVED BY MD.SHEHAB
+          CHOWDHURY(Batch-2015) |©
         </Typography>
       </Box>
     </Box>

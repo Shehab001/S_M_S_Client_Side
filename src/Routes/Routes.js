@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdmissionDetails from "../Components/AdmissionDetails/AdmissionDetails";
+import Clubs from "../Components/Clubs/Clubs";
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Error from "../Components/Error";
 import Gallery from "../Components/Gallery/Gallery";
@@ -56,10 +57,10 @@ const router = createBrowserRouter([
         path: "/gallery",
         element: <Gallery></Gallery>,
       },
-      // {
-      //   path: "/addservice",
-      //   element: <AddService></AddService>,
-      // },
+      {
+        path: "/club",
+        element: <Clubs></Clubs>,
+      },
       // {
       //   path: "/singleservice/:id",
       //   element: (
