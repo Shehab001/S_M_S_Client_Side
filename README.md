@@ -6,4 +6,6 @@ This school website is built with React, Express, Node.js, MongoDB, and Firebase
 <h3>admin@gmail.com</h3>
 <h3>Password: 00000000</h3>
 
+<h2><a href="https://github.com/Shehab001/S_M_S_Server_Side">Server Side Code</a></h2>
+
   
